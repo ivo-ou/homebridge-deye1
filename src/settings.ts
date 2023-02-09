@@ -6,4 +6,4 @@ export const PLATFORM_NAME = 'DEYE';
 /**
  * This must match the name of your plugin as defined the package.json
  */
-export const PLUGIN_NAME = 'homebridge-deye';
+export const PLUGIN_NAME = 'homebridge-deye1';
