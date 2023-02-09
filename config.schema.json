@@ -4,7 +4,7 @@
   "singular": false,
   "schema": {
     "type": "object",
-    "title": "Homebridge-Deye",
+    "title": "Homebridge-Deye1",
     "required": [
       "mqttBaseInfo",
       "devices"
@@ -71,7 +71,9 @@
             "deviceId",
             "fanControl",
             "dryClothes",
-            "sleepMode"
+            "sleepMode",
+            "cleanMode",
+            "autoMode"
           ],
           "properties": {
             "name": {
@@ -113,6 +115,16 @@
               "type": "boolean",
               "title": "Enable Sleep Mode",
               "description": "Enable your device's sleep mode display in HomeKit. It will appear as a switch. Caution: Some devices does not support this function"
+            },
+            "cleanMode": {
+              "type": "boolean",
+              "title": "Enable Clean Mode",
+              "description": "Enable your device's Clean mode display in HomeKit. It will appear as a switch. Caution: Some devices does not support this function"
+            },
+            "autoMode": {
+              "type": "boolean",
+              "title": "Enable Auto Mode",
+              "description": "Enable your device's auto mode display in HomeKit. It will appear as a switch. Caution: Some devices does not support this function"
             }
           },
           "additionalProperties": true
