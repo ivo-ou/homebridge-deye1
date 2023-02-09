@@ -1,66 +1,6 @@
-# Homebridge Deye
+# Homebridge Deye T22A3
 
-[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
-[![homebridge-deye](https://badgen.net/npm/v/homebridge-deye?icon=npm)](https://www.npmjs.com/package/homebridge-deye)
-[![license](https://badgen.net/github/license/IcesandSora/homebridge-deye)](https://github.com/IcesandSora/homebridge-deye/blob/master/LICENSE)
-
-Connects the Deye dehumidifier to HomeKit and allows control via the native iOS Home App and Siri. This plug-in theoretically supports most Deye dehumidifiers.
-
-[中文说明](https://github.com/IcesandSora/homebridge-deye/blob/master/README/zh-CN.md) ｜ English
-
-## Function
-
-- Access to HomeKit as a dehumidifier device
-
-- Ambient temperature and humidity display
-
-- Dehumidifier water level display
-
-- Dehumidifier target humidity adjustment
-
-- Set the mode of dehumidifier. Sleep, Manual and Dry
-
-- Control fan speed (some models do not support this function)
-
-- Child lock (physical control lock)
-
-- HomeKit Automation
-
-## Supported devices
-
-Theoretically, most Deye dehumidifiers can be connected.
-
-The following devices have been tested.
-
-- Deye DYD-D50A3 (Touch Panel version) [Link](http://www.deye.cn/new/2020/04/14/%E5%AE%B6%E7%94%A8%E9%99%A4%E6%B9%BF%E6%9C%BAdyd-d50a3/)
-
-- Deye DYD-E12A3 [Link](http://www.deye.cn/new/2020/04/15/%e5%ae%b6%e7%94%a8%e9%99%a4%e6%b9%bf%e6%9c%badyd-e12a3/)
-
-## Screenshot
-
-<center class="half">
-    <img src="./README/img/Screenshot-EN.png"/>
-</center>
-
-## Installation
-
-If you are new to Homebridge, please follow [the documentation here](https://github.com/homebridge/homebridge/wiki) to complete the installation of Homebridge and Homebridge Config UI X.
-
-Installing the Dehumidifier plugin
-
-```
-sudo npm install -g homebridge-deye
-```
-
-## Configuration
-
-This plugin can be configured in Homebridge Config UI X, or manually.
-
-You can use the [Deye Device Information Getter](https://deyedev.tat.moe/) to get the configuration information of your device.
-
-Open Deye Device Information Getter, enter the cell phone number and password of your Deye account, and click Login. This page should display the server connection information and device information.
-
-**Please note: Since the Deye account only supports single-side login, it is normal that your App may receive a notification that "Your account is logged in elsewhere". This is normal.**
+简单修改T22A3指令
 
 Add the `DEYE` platform to `config.json` in the home directory within `.homebridge`.
 
