@@ -1,17 +1,17 @@
 {
   "private": false,
-  "displayName": "Homebridge Deye",
-  "name": "homebridge-deye",
-  "version": "1.0.2",
+  "displayName": "Homebridge Deye1",
+  "name": "homebridge-deye1",
+  "version": "0.0.2",
   "description": "Connect the Deye dehumidifier to Homekit.",
-  "author": "Icesand Sora",
+  "author": "ivo ou",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/IcesandSora/homebridge-deye"
+    "url": "https://github.com/ivo-ou/homebridge-deye1"
   },
   "bugs": {
-    "url": "https://github.com/IcesandSora/homebridge-deye/issues"
+    "url": "https://github.com/ivo-ou/homebridge-deye1/issues"
   },
   "engines": {
     "node": ">=14.18.1",
@@ -27,7 +27,7 @@
   "keywords": [
     "homebridge-plugin",
     "homebridge",
-    "deye",
+    "deye T22A3",
     "homekit",
     "dehumidifier"
   ],
