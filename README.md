@@ -1,6 +1,6 @@
 # Homebridge Deye T22A3
 
-简单修改T22A3指令
+简单修改适配T22A3指令
 
 Add the `DEYE` platform to `config.json` in the home directory within `.homebridge`.
 
@@ -21,14 +21,16 @@ Example configuration
             },
             "devices": [
                 {
-                    "name": "DYD-D50A3",
-                    "model": "DYD-D50A3",
+                    "name": "DYD-T22A3",
+                    "model": "DYD-T22A3",
                     "productId": "97e85d3856c54a1ab090c8541101a050",
                     "deviceId": "5111127c8d6f4beca10861dfc5942949",
                     "fanControl": true,
                     "temperatureSensor": true,
                     "dryClothes": true,
-                    "sleepMode": true
+                    "sleepMode": true,
+                    "cleanMode": true,
+                    "autoMode": true
                 }
             ]
         }
