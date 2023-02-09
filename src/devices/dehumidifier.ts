@@ -15,10 +15,10 @@ class DeyeDehumidifierAccessory {
             Active: this.platform.Characteristic.Active.ACTIVE,
             FanSpeed: 1,
             CurrentHumidifierDehumidifierState: this.platform.Characteristic.CurrentHumidifierDehumidifierState.DEHUMIDIFYING,
-            sleepMode: false,
-            dryCloMode: false,
-            cleanMode: false,
-            autoMode: false,
+            sleepMode: this.platform.Characteristic.deviceMode == 6,
+            dryCloMode: this.platform.Characteristic.deviceMode == 1,
+            cleanMode: this.platform.Characteristic.deviceMode == 2,
+            autoMode: this.platform.Characteristic.deviceMode == 3,
             TargetHumidifierDehumidifierState: this.platform.Characteristic.TargetHumidifierDehumidifierState.DEHUMIDIFIER,
             CurrentRelativeHumidity: 60,
             RelativeHumidityDehumidifierThreshold: 60,
@@ -123,7 +123,7 @@ class DeyeDehumidifierAccessory {
             .setProps({
             minValue: 0,
             maxValue: 100,
-            minStep: 1,
+            minStep: 5,
         })
             .onGet(this.getRelativeHumidityDehumidifierThreshold.bind(this))
             .onSet(this.setRelativeHumidityDehumidifierThreshold.bind(this));
@@ -302,11 +302,11 @@ class DeyeDehumidifierAccessory {
     }
     async setDryCloMode(value) {
         this.deviceStates.dryCloMode = value;
-        // if( value ) {
-        //     this.deviceStates.sleepMode = false;
-        //     this.deviceStates.cleanMode = false;
-        //     this.deviceStates.autoMode = false;
-        // }
+        if( value ) {
+            this.deviceStates.sleepMode = false;
+            this.deviceStates.cleanMode = false;
+            this.deviceStates.autoMode = false;
+        }
         this.mqttClient.publish(this.commandTopic, this.getDeviceStates());
         this.dryCloService.updateCharacteristic(this.platform.Characteristic.On, value);
         this.platform.log.debug('Set Characteristic dryCloMode -> ', value);
@@ -329,11 +329,11 @@ class DeyeDehumidifierAccessory {
     }
     async setSleepMode(value) {
         this.deviceStates.sleepMode = value;
-        // if( value ) {
-        //     this.deviceStates.dryCloMode = false;
-        //     this.deviceStates.cleanMode = false;
-        //     this.deviceStates.autoMode = false;
-        // }
+        if( value ) {
+            this.deviceStates.dryCloMode = false;
+            this.deviceStates.cleanMode = false;
+            this.deviceStates.autoMode = false;
+        }
         this.mqttClient.publish(this.commandTopic, this.getDeviceStates());
         this.sleepService.updateCharacteristic(this.platform.Characteristic.On, value);
         this.platform.log.debug('Set Characteristic sleepMode -> ', value);
@@ -356,11 +356,11 @@ class DeyeDehumidifierAccessory {
     }
     async setCleanMode(value) {
         this.deviceStates.cleanMode = value;
-        // if( value ) {
-        //     this.deviceStates.sleepMode = false;
-        //     this.deviceStates.dryCloMode = false;
-        //     this.deviceStates.autoMode = false;
-        // }
+        if( value ) {
+            this.deviceStates.sleepMode = false;
+            this.deviceStates.dryCloMode = false;
+            this.deviceStates.autoMode = false;
+        }
         this.mqttClient.publish(this.commandTopic, this.getDeviceStates());
         this.cleanService.updateCharacteristic(this.platform.Characteristic.On, value);
         this.platform.log.debug('Set Characteristic cleanMode -> ', value);
@@ -383,11 +383,11 @@ class DeyeDehumidifierAccessory {
     }
     async setAutoMode(value) {
         this.deviceStates.autoMode = value;
-        // if( value ) {
-        //     this.deviceStates.sleepMode = false;
-        //     this.deviceStates.cleanMode = false;
-        //     this.deviceStates.dryCloMode = false;
-        // }
+        if( value ) {
+            this.deviceStates.sleepMode = false;
+            this.deviceStates.cleanMode = false;
+            this.deviceStates.dryCloMode = false;
+        }
         this.mqttClient.publish(this.commandTopic, this.getDeviceStates());
         this.autoService.updateCharacteristic(this.platform.Characteristic.On, value);
         this.platform.log.debug('Set Characteristic autoMode -> ', value);
