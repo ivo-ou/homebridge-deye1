@@ -94,7 +94,7 @@ class DeyeDehumidifierAccessory {
         if (accessory.context.device.fanControl) {
             this.service.getCharacteristic(this.platform.Characteristic.RotationSpeed)
                 .setProps({
-                minValue: 0,
+                minValue: 1,
                 maxValue: 3,
                 minStep: 1,
             })
@@ -190,14 +190,17 @@ class DeyeDehumidifierAccessory {
                 this.deviceStates.cleanMode = false;
                 this.deviceStates.autoMode = false;
             }
-            if (deviceInfo.powerStatus === '3' || deviceInfo.powerStatus === '7') {
+            if (deviceInfo.powerStatus === '3' || deviceInfo.powerStatus === '7' || deviceInfo.powerStatus === '1' || deviceInfo.powerStatus === '5') {
                 this.deviceStates.Active = this.platform.Characteristic.Active.ACTIVE;
             }
             else {
                 this.deviceStates.Active = this.platform.Characteristic.Active.INACTIVE;
             }
-            if (deviceInfo.powerStatus === '6' || deviceInfo.powerStatus === '7') {
+            if (deviceInfo.powerStatus === '6' || deviceInfo.powerStatus === '7' || deviceInfo.powerStatus === '4' || deviceInfo.powerStatus === '5') {
                 this.deviceStates.LockPhysicalControls = 1;
+            }
+            else {
+                this.deviceStates.LockPhysicalControls = 0;
             }
             if (deviceInfo.dehumidifierStatus === '8') {
                 this.deviceStates.CurrentHumidifierDehumidifierState =
@@ -250,10 +253,10 @@ class DeyeDehumidifierAccessory {
         let devicePower;
         let deviceFan;
         if (this.deviceStates.Active === 1) {
-            devicePower = 0b0011;
+            devicePower = 0b0001;
         }
         else {
-            devicePower = 0b0010;
+            devicePower = 0b0000;
         }
         if (this.deviceStates.LockPhysicalControls === 1) {
             devicePower = devicePower ^ 0b0100;
